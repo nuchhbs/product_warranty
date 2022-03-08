@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+            id="report_warranty_certificate"
+            model="product.warranty"
+            string="Warranty Certificate"
+            report_type="qweb-pdf"
+            name="product_warranty.report_warranty"
+            file="product_warranty.report_warranty"/>
+
+    <report
+            id="report_warranty_certificate_xlx"
+            model="product.warranty"
+            report_type="xlsx"
+            string="Warranty Product Excel Report"
+            name="product_warranty.report_warranty_xls"
+            file="product_warranty.report_warranty_xls"/>
+
+    <report
+            id="action_summary_product_warranty_pdf"
+            model="warranty.report.wizard"
+            menu="False"
+            report_type="qweb-pdf"
+            string="Warranty Product Detail"
+            name="product_warranty.report_warranty_detail"
+            file="product_warranty.report_warranty_detail"/>
+
+</odoo>

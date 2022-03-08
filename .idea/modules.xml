@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Dev/.idea/Dev.iml" filepath="$PROJECT_DIR$/../Dev/.idea/Dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../om_hospital-12.0.3.0.0/.idea/om_hospital-12.0.3.0.0.iml" filepath="$PROJECT_DIR$/../om_hospital-12.0.3.0.0/.idea/om_hospital-12.0.3.0.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/product_warranty.iml" filepath="$PROJECT_DIR$/.idea/product_warranty.iml" />
+    </modules>
+  </component>
+</project>

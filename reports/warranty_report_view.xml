@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_warranty_detail">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+<!--            <t t-foreach="docs" t-as="doc">-->
+                    <div class="page">
+                        <div class="oe_structure">
+                            <div class="text-center" style="text-align:center; font-size: 30px; font-family: TH Krub;">
+                                Warranty Product Report
+                            </div>
+                            <div class="text-left">
+                               <table style="font-size: 12px;">
+                                   <tr>
+                                       <td>Date From &amp;nbsp;</td>
+                                       <td>: &amp;nbsp;</td>
+                                       <td>
+                                           <span t-esc="data['form']['date_from']"/>
+                                       </td>
+                                   </tr>
+                                    <tr>
+                                       <td>Date To</td>
+                                       <td>:</td>
+                                       <td>
+                                           <span t-esc="data['form']['date_to']"/>
+                                       </td>
+                                   </tr>
+                               </table>
+                            </div>
+                            <table class="table" style="font-family: TH Krub;">
+                                <thead>
+                                    <tr style="font-size: 20px;">
+                                      <th scope="col">Warranty Number</th>
+                                      <th scope="col">Product</th>
+                                      <th scope="col">Customer Name</th>
+                                      <th scope="col">Sale Order</th>
+                                      <th scope="col">Start Warranty</th>
+                                      <th scope="col">End Warranty</th>
+                                      <th scope="col">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="o">
+                                        <tr>
+                                            <td>
+                                                <span t-esc="o['warranty_seq']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.product_id.name"/>1
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.customer_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o.order_id.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o['date_start']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o['_date_end']"/>
+                                            </td>
+                                            <td>
+                                                <span t-esc="o['state']"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+<!--                 </t>-->
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

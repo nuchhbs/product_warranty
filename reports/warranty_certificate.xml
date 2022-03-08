@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_warranty">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                 <t t-foreach="docs" t-as="doc">
+
+                         <style>
+                            table.table {
+                            }
+                            th, td {
+                            padding-bottom: -5px;
+                            padding-left: -5px;
+                            }
+                            th {
+                            font-size: 24px;
+                            height: 30px;
+                            }
+                            td {
+                            font-size: 22px;
+                            padding-left: 10px;
+                            {
+
+                        </style>
+                         <table class="head" style="width:100%; padding: 30px; font-family: TH Krub;" >
+                             <thead>
+                                 <tr>
+                                     <th class="center-form-certi" style="text-align:center; font-size: 30px; padding-left: 18%; ">
+                                        <span>Certificate of Warranty</span>
+                                        <br/>
+                                        <span>บัตรรับประกันสินค้า</span>
+                                     </th>
+                                     <th style="text-align:right; font-size: 20px;">
+                                         <div>
+                                             <span>สำหรับผู้ชื้อ</span>
+                                         </div>
+
+                                     </th>
+                                 </tr>
+                             </thead>
+
+                         </table>
+                         <table class="fixed" style="width:100%; font-family: TH Krub;">
+                             <thead>
+                                 <tr>
+                                     <th class="customer-info" style="line-height: 22px; text-align:left; padding:15px 25px; ">
+                                         <span>ข้อมูลผู้ซื้อ</span>
+                                     </th>
+                                 </tr>
+                                 <tr>
+                                     <td style="border: 1px solid black; line-height: 40px; padding-top: 10px">
+                                         <b>ผู้ซื้อ</b>  &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                            <span style="padding-left: 15px" t-field="doc.customer_id.name"/>
+                                         <br/>
+                                         <b>ที่อยู่</b>  &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                            <span style="padding-left: 15px" t-field="doc.customer_id.street"/>
+                                            &amp;nbsp;
+                                            <span t-field="doc.customer_id.state_id"/>
+                                            <span t-field="doc.customer_id.country_id"/>
+                                            <span t-field="doc.customer_id.zip"/>
+                                            <br/>
+                                         <b>อีเมล</b>  &amp;nbsp;&amp;nbsp;
+                                            <span style="padding-left: 15px" t-field="doc.customer_id.email"/>
+                                         <br/>
+                                         <b>โทรศัพท์</b>&amp;nbsp;&amp;nbsp;
+                                            <span t-field="doc.customer_id.phone"/>
+
+                                     </td>
+
+                                 </tr>
+                                 <tr>
+                                    <th class="product-info" style="line-height: 22px; text-align:left; padding:15px 25px; ">
+                                         <span>ข้อมูลสินค้า</span>
+                                    </th>
+                                 </tr>
+                                 <tr>
+                                     <td style="border: 1px solid black; line-height: 40px; padding-top: 10px">
+                                         <b>ชื่อสินค้า</b>
+                                            <span style="padding-left: 10%" t-field="doc.product_id.name"/>
+                                         <br/>
+                                         <b>รหัส</b>
+                                            <span style="padding-left: 13.2%" t-field="doc.product_id.default_code"/>
+                                         <br/>
+                                         <b>เลขใบสั่งซื้อ</b>
+                                            <span style="padding-left: 7.5%" t-field="doc.order_id"/>
+                                         <br/>
+                                         <b>เลขรับประกัน</b>
+                                            <span style="padding-left: 5.6%" t-field="doc.warranty_seq"/>
+                                         <br/>
+                                         <b>วันที่ซื้อ</b>
+                                            <span style="padding-left: 10.7%" t-field="doc.date_start"/>
+                                         <br/>
+                                         <b>วันหมดอายุประกัน</b>
+                                            <span style="padding-left: 2%" t-field="doc.date_end"/>
+
+                                     </td>
+                                 </tr>
+                             </thead>
+
+                         </table>
+                         <br/>
+                         <div class="condition-warranty">
+                             <p style="font-size:20px; text-align: center;">
+                                 เงื่อนไขการรับประกัน
+                             </p>
+                             <span>สินค้าที่อยู่ในประกันต้องมีคุณสมบัติ ดังนี้</span>
+                             <br/>
+                             <span>1. สินค้าต้องอยู่ในสภาพสมบูรณ์ มีกล่องและอุปกรณ์ครบทุกชิ้น ห้ามขีดเขียนใดๆลงสินค้าและกล่องสินค้า รวมทั้งต้องไม่ฉีกขาด</span><br/>
+                             <span>2. สติ๊กเกอร์รับประกัน (วอยด์) อยู่ในสภาพสมบูรณ์ ไม่ถูกแกะหรือหายไป</span><br/>
+                             <span>3. ไม่แกะหรือถอดชิ้นส่วนสินค้าเพื่อซ่อมเอง</span><br/>
+                             <span>4. ไม่ตกพื้น ตกน้ำหรือมีร่องรอยการไหม้และชื้นอันเกิดจากความผิดพลาดของผู้ใช้</span><br/>
+                             <span>5. สินค้าไม่แตก หัก สีลอก บิ่น และมีชิ้นส่วนสินค้าหายไป</span><br/>
+                             <span>6. ไม่รองรับความเสียหายอันเกิดมาจากอุปกรณ์ต่อพ่วงที่ไม่ได้มาตราฐาน</span><br/>
+                             <span>7. ไม่รองรับความเสียหายที่มีสาเหตุจากลูกค้าใช้งานไม่ถูกต้อง หรือใช้งานผิดประเภท</span><br/>
+                             <span>8. ขอสงวนสิทธิ์การเปลี่ยนแปลง แก้ไขเงื่อนไขการรับประกัน ในบางเคสที่มีปัญหาโดยมิต้องแจ้งให้ทราบล่วงหน้า</span>
+                         </div>
+                         <div class="product_warranty_barcode">
+                             <span style="padding-left: 70%">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s'
+                                        % ('Code128', doc.warranty_seq, 600, 100)" style="width:300px;height:50px"/>
+                            </span>
+                         </div>
+                 </t>
+            </t>
+        </t>
+
+    </template>
+
+</odoo>

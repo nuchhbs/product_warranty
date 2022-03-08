@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="warrantytype_list_tree" model="ir.ui.view">
+        <field name="name">warrantytype.list.tree</field>
+        <field name="model">warranty.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name_period"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="warrantytype_list_view" model="ir.ui.view">
+        <field name="name">warrantytype.list.form</field>
+        <field name="model">warranty.type</field>
+        <field name="arch" type="xml">
+            <form string="Product Warranty Type">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name_period"/>
+                            <field name="unit"/>
+                            <field name="note"/>
+                        </group>
+                        <group>
+                            <field name="warranty_period"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="warrantytype_list_search" model="ir.ui.view">
+        <field name="name">warrantytype.list.search</field>
+        <field name="model">warranty.type</field>
+        <field name="arch" type="xml">
+            <filter string="Day" name="day" domain="[('unit', '=', 'day')]"/>
+            <filter string="Month" name="month" domain="[('unit', '=', 'month')]"/>
+            <filter string="Year" name="year" domain="[('unit', '=', 'year')]"/>
+            <group expand="0" string="Group By">
+                <filter string="Unit" name="unit" context="{'group_by':'unit'}"/>
+            </group>
+        </field>
+    </record>
+
+    <record id="action_warranty_profile" model="ir.actions.act_window">
+        <field name="name">Product Warranty Type</field>
+        <field name="res_model">warranty.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+<!--    <menuitem id="warrantytype_sub_menu" name="Product warranty Type" parent="product_warranty.product_sub_menu" sequence="2"/>-->
+    <menuitem id="warrantytype_profile_menu" action="action_warranty_profile" name="Product warranty type"
+              parent="product_warranty.product_sub_menu" sequence="2"/>
+
+
+</odoo>

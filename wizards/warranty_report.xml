@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="warranty_report_wizard_form" model="ir.ui.view">
+         <field name="name">warranty.report.wizard.from</field>
+         <field name="model">warranty.report.wizard</field>
+         <field name="arch" type="xml">
+            <form string="Warranty Report Detail">
+                <group>
+                    <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                     <group>
+                        <field name="product_select"/>
+                        <field name="product_id" attrs="{'invisible':[('product_select', '!=', True)]}"/>
+                        <field name="customer_select"/>
+                        <field name="customer_id" attrs="{'invisible':[('customer_select', '!=', True)]}"/>
+                        <field name="sale_select"/>
+                        <field name="user_id" attrs="{'invisible':[('sale_select', '!=', True)]}"/>
+                        <field name="state_select"/>
+                        <field name="state" attrs="{'invisible':[('state_select', '!=', True)]}"/>
+                    </group>
+                    <group>
+                        <field name="filter_date_type"/>
+                    </group>
+                    <group>
+
+                    </group>
+
+                </group>
+                <footer>
+                    <button name="print_pdf" string="Print PDF" type="object" class="btn-primary"/>
+<!--                    <button name="generate_xlsx" string="Generate xlsx" type="object" class="btn-primary"/>-->
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+
+    <record id="warranty_report_action" model="ir.actions.act_window">
+        <field name="name">Warranty Report Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">warranty.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="warranty_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

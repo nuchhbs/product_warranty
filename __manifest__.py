@@ -1,0 +1,32 @@
+{
+    'name': 'Product Warranty Management',
+    'version': '12.0.0.1',
+    'summary': 'Helper for your product warranty management',
+    'sequence': '1',
+    'category': 'Warranty',
+    'author': 'RBS',
+    'depends': [
+        'sale', 'stock', 'report_xlsx'
+    ],
+    'demo': [],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/warrantytype_view.xml',
+        'views/product_view.xml',
+        'views/sale_order_view.xml',
+        'views/product_info_view.xml',
+        'views/picking_view.xml',
+        'data/in_warranty_cron.xml',
+        'data/warranty_expiration_cron.xml',
+        'data/near_expiry_cron.xml',
+        'data/warranty_name_sequence.xml',
+        'reports/warranty_certificate.xml',
+        'reports/report.xml',
+        'reports/warranty_report_view.xml',
+        'wizards/warranty_report.xml',
+    ],
+    'images': ['static/description/icon01.png'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}
